@@ -1,0 +1,231 @@
+{
+    "help": "https://open.canada.ca/data/api/3/action/help_show?name=package_show",
+    "success": true,
+    "result": {
+        "issuance_frequency": "",
+        "notes_translated": {
+            "fr": "R\u00e9sultats d\u00e9taill\u00e9s de l'\u00e9valuation d'impact algorithmique pour le [Service de demande d\u2019AIPRP en ligne.](https://atip-aiprp.tbs-sct.gc.ca/fr/Accueil/Bienvenue)\r\n\r\nQu'est-ce que l'\u00e9valuation d'impact algorithmique?\r\nL'EIA est un questionnaire con\u00e7u pour vous aider \u00e0 \u00e9valuer et \u00e0 att\u00e9nuer les risques associ\u00e9s au d\u00e9ploiement d'un syst\u00e8me de prise de d\u00e9cision automatis\u00e9. L'EIA permet \u00e9galement d'identifier le niveau d'impact de votre syst\u00e8me de d\u00e9cision automatis\u00e9 en vertu de la directive propos\u00e9e sur la prise de d\u00e9cision automatis\u00e9e. Les questions portent sur vos processus m\u00e9tier, vos donn\u00e9es et vos d\u00e9cisions de conception de syst\u00e8me.\r\n\r\nCe questionnaire vous demande environ 57 questions li\u00e9es \u00e0 vos processus m\u00e9tier, \u00e0 vos donn\u00e9es et \u00e0 vos d\u00e9cisions en mati\u00e8re de syst\u00e8me. Les r\u00e9sultats d\u00e9montreront votre niveau d'impact ainsi qu'un lien vous permettant de conna\u00eetre vos exigences en vertu de la directive.\r\n",
+            "en": "Detailed results from the Algorithmic Impact Assessment for the [ATIP Online Request System.](https://atip-aiprp.tbs-sct.gc.ca/en/Home/Welcome)\r\n\r\nWhat is the Algorithmic Impact Assessment?\r\nThe AIA is a questionnaire designed to help users assess and mitigate the risks associated with deploying an automated decision system. The AIA also helps identify the impact level of the automated decision system under the proposed Directive on Automated Decision-Making. The questions are focused on business processes, data, and system design decisions.\r\n\r\nThe questionnaire asks around 57 questions related to business process, data and system designed decisions. The results will demonstrate the impact level as well as a link where users can learn about what your requirements are under the Directive."
+        },
+        "issn": "",
+        "imso_approval": "true",
+        "isbn": "",
+        "creator": "",
+        "org_section": {
+            "fr": "Bureau du dirigeant principal de l\u2019information",
+            "en": "Office of the Chief Information Officer"
+        },
+        "jurisdiction": "federal",
+        "private": false,
+        "maintainer_email": "open-ouvert@tbs-sct.gc.ca",
+        "num_tags": 0,
+        "edition": "",
+        "frequency": "not_planned",
+        "data_series_issue_identification": {
+            "fr": "",
+            "en": ""
+        },
+        "contributor": {
+            "fr": "",
+            "en": ""
+        },
+        "maintainer": null,
+        "ready_to_publish": "true",
+        "id": "cea9985f-5e0f-425e-9b7e-e1d122272c56",
+        "metadata_created": "2020-01-31T13:21:33.790670",
+        "subject": [
+            "government_and_politics",
+            "science_and_technology"
+        ],
+        "pspc_identification_number": "",
+        "metadata_modified": "2020-01-31T13:22:07.446194",
+        "author": null,
+        "author_email": null,
+        "geographic_region": [],
+        "portal_release_date": "2018-10-10",
+        "digital_object_identifier": "",
+        "state": "active",
+        "version": null,
+        "keywords": {
+            "fr": [
+                "AIPRP",
+                "intelligence artificielle"
+            ],
+            "en": [
+                "Artificial Intelligence",
+                "ATIP"
+            ]
+        },
+        "relationships_as_object": [],
+        "creator_user_id": "4cfa9a9c-1d95-40eb-86f9-bc0c8ec45d1f",
+        "title_translated": {
+            "fr": " \u00c9valuation d'impact algorithmique - Service de demande d\u2019AIPRP en ligne",
+            "en": "Algorithmic Impact Assessment - ATIP Online Request Service"
+        },
+        "type": "info",
+        "resources": [
+            {
+                "cache_last_updated": null,
+                "unique_identifier": "",
+                "package_id": "cea9985f-5e0f-425e-9b7e-e1d122272c56",
+                "datastore_active": false,
+                "character_set": "",
+                "related_type": "",
+                "state": "active",
+                "id": "aa0e96d8-0432-4398-948d-6d52cb5f0472",
+                "related_relationship": "",
+                "name_translated": {
+                    "fr": "Dictionnaire de donn\u00e9es (Anglais)",
+                    "en": "Data Dictionary (English)"
+                },
+                "hash": "",
+                "description": "",
+                "format": "CSV",
+                "date_published": "",
+                "mimetype_inner": null,
+                "url_type": "upload",
+                "mimetype": null,
+                "cache_url": null,
+                "name": "Data Dictionary (English)",
+                "language": [
+                    "en"
+                ],
+                "created": "2020-01-31T13:21:35.314329",
+                "url": "https://open.canada.ca/data/dataset/cea9985f-5e0f-425e-9b7e-e1d122272c56/resource/aa0e96d8-0432-4398-948d-6d52cb5f0472/download/en-data-dictionary-aia-aors.csv",
+                "last_modified": null,
+                "position": 0,
+                "revision_id": "70c9e5c9-3919-4d48-89bf-0f667ec059e2",
+                "resource_type": "guide"
+            },
+            {
+                "cache_last_updated": null,
+                "unique_identifier": "",
+                "package_id": "cea9985f-5e0f-425e-9b7e-e1d122272c56",
+                "datastore_active": false,
+                "character_set": "",
+                "related_type": "",
+                "state": "active",
+                "id": "ad75051c-c35a-42c4-b773-de170bb2bdc5",
+                "related_relationship": "",
+                "name_translated": {
+                    "fr": "Dictionnaire de donn\u00e9es (Fran\u00e7ais)",
+                    "en": "Data Dictionary (French) "
+                },
+                "hash": "",
+                "description": "",
+                "format": "CSV",
+                "date_published": "",
+                "mimetype_inner": null,
+                "url_type": "upload",
+                "mimetype": null,
+                "cache_url": null,
+                "name": "Data Dictionary (French) ",
+                "language": [
+                    "fr"
+                ],
+                "created": "2020-01-31T13:22:07.979388",
+                "url": "https://open.canada.ca/data/dataset/cea9985f-5e0f-425e-9b7e-e1d122272c56/resource/ad75051c-c35a-42c4-b773-de170bb2bdc5/download/fr-data-dictionary-aia-aors.csv",
+                "last_modified": null,
+                "position": 1,
+                "revision_id": "9d519766-98f7-4a9a-9fb9-aa19cf79cc7a",
+                "resource_type": "guide"
+            },
+            {
+                "cache_last_updated": null,
+                "unique_identifier": "",
+                "package_id": "cea9985f-5e0f-425e-9b7e-e1d122272c56",
+                "datastore_active": false,
+                "character_set": "",
+                "related_type": "",
+                "state": "active",
+                "id": "51b5378f-1f1d-4a20-a7c8-4f313ae6c617",
+                "related_relationship": "",
+                "name_translated": {
+                    "fr": "Score d\u00e9taill\u00e9 ",
+                    "en": "Detailed Results"
+                },
+                "hash": "",
+                "description": "",
+                "format": "CSV",
+                "date_published": "",
+                "mimetype_inner": null,
+                "url_type": "upload",
+                "mimetype": null,
+                "cache_url": null,
+                "name": "Detailed Results",
+                "language": [
+                    "en",
+                    "fr"
+                ],
+                "created": "2020-01-31T13:22:07.979416",
+                "url": "https://open.canada.ca/data/dataset/cea9985f-5e0f-425e-9b7e-e1d122272c56/resource/51b5378f-1f1d-4a20-a7c8-4f313ae6c617/download/aors-aia.csv",
+                "last_modified": null,
+                "position": 2,
+                "revision_id": "9d519766-98f7-4a9a-9fb9-aa19cf79cc7a",
+                "resource_type": "dataset"
+            }
+        ],
+        "place_of_publication": [
+            "3506"
+        ],
+        "num_resources": 3,
+        "tags": [],
+        "spatial": "",
+        "collection": "aia",
+        "org_title_at_publication": {
+            "fr": "Secr\u00e9tariat du Conseil du Tr\u00e9sor du Canada",
+            "en": "Treasury Board of Canada Secretariat"
+        },
+        "date_published": "2018-10-05 00:00:00",
+        "issuance": "",
+        "groups": [],
+        "license_id": "ca-ogl-lgo",
+        "data_series_name": {
+            "fr": "",
+            "en": ""
+        },
+        "relationships_as_subject": [],
+        "license_title": "Open Government Licence - Canada",
+        "restrictions": "unrestricted",
+        "organization": {
+            "description": "",
+            "created": "2016-09-23T17:26:17.294681",
+            "title": "Treasury Board of Canada Secretariat | Secr\u00e9tariat du Conseil du Tr\u00e9sor du Canada",
+            "name": "tbs-sct",
+            "is_organization": true,
+            "state": "active",
+            "image_url": "",
+            "revision_id": "189d1ca6-d57a-4277-a432-7fda17346ce4",
+            "type": "organization",
+            "id": "81765FCD-32B3-4708-A593-3AA00705E62B",
+            "approval_status": "approved"
+        },
+        "name": "cea9985f-5e0f-425e-9b7e-e1d122272c56",
+        "isopen": false,
+        "additional_notes": {
+            "fr": "",
+            "en": ""
+        },
+        "departmental_identification_number": "",
+        "notes": "Detailed results from the Algorithmic Impact Assessment for the [ATIP Online Request System.](https://atip-aiprp.tbs-sct.gc.ca/en/Home/Welcome)\r\n\r\nWhat is the Algorithmic Impact Assessment?\r\nThe AIA is a questionnaire designed to help users assess and mitigate the risks associated with deploying an automated decision system. The AIA also helps identify the impact level of the automated decision system under the proposed Directive on Automated Decision-Making. The questions are focused on business processes, data, and system design decisions.\r\n\r\nThe questionnaire asks around 57 questions related to business process, data and system designed decisions. The results will demonstrate the impact level as well as a link where users can learn about what your requirements are under the Directive.",
+        "owner_org": "81765FCD-32B3-4708-A593-3AA00705E62B",
+        "program_page_url": {
+            "fr": "https://canada-ca.github.io/digital-playbook-guide-numerique/views-vues/automated-decision-automatise/fr/evaluation-impact-algorithmique.html",
+            "en": "https://canada-ca.github.io/digital-playbook-guide-numerique/views-vues/automated-decision-automatise/en/algorithmic-impact-assessment.html"
+        },
+        "url": null,
+        "audience": [
+            "general_public",
+            "government",
+            "scientists"
+        ],
+        "gc_catalogue_number": "",
+        "license_url": "http://open.canada.ca/en/open-government-licence-canada",
+        "series_publication_dates": {
+            "fr": "",
+            "en": ""
+        },
+        "title": "Algorithmic Impact Assessment - ATIP Online Request Service",
+        "revision_id": "9d519766-98f7-4a9a-9fb9-aa19cf79cc7a"
+    }
+}

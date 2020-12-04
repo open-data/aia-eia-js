@@ -9,6 +9,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "update-depts": "node ./scripts/update-dept-json.js",
     "lint": "vue-cli-service lint",
     "lint:md": "markdownlint \"**/*.md\" -i \"node_modules\"",
     "test:unit": "vue-cli-service test:unit",
@@ -22,10 +23,12 @@
     "@types/showdown": "^1.9.3",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
+    "jqeury": "0.0.1-security",
     "lodash.isempty": "^4.4.0",
     "register-service-worker": "^1.7.1",
     "showdown": "^1.9.1",
     "survey-vue": "^1.7.23",
+    "underscore": "^1.12.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.5",
     "vue-i18n": "^8.18.2",
@@ -37,6 +40,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.9",
+    "@types/jquery": "^3.5.5",
     "@vue/cli-plugin-babel": "^4.4.6",
     "@vue/cli-plugin-eslint": "^4.4.6",
     "@vue/cli-plugin-pwa": "^4.4.6",

@@ -11,6 +11,17 @@
         {{ $t("linkProjectText") }}
       </a>
     </p>
+    <p>
+      <a
+        class="btn btn-default "
+        role="button"
+        href="
+          https://registry.open.canada.ca/en/info/new
+        "
+      >
+        {{ $t("openGovUpload") }}
+      </a>
+    </p>
     <form>
       <ActionButtonBar
         v-on:fileLoaded="fileLoaded($event)"
