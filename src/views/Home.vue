@@ -119,6 +119,56 @@ export default class Home extends Vue {
       }
     });
 
+    $(document).ready(function() {
+      // AJAX in the data file
+      $.ajax({
+        type: "GET",
+        url: "https://open.canada.ca/static/orgs.csv",
+        dataType: "text",
+        success: function(data: any) {
+          processData(data);
+        }
+      });
+
+      // Let's process the data from the data file
+      function processData(data: any) {
+        var lines = data.split(/\r\n|\n/);
+
+        //Set up the data arrays
+        var uuid = [];
+        var title_en = [];
+        var title_fr = [];
+
+        var headings = lines[0].split(","); // Splice up the first row to get the headings
+
+        for (var j = 1; j < lines.length; j++) {
+          // eslint-disable-next-line security/detect-object-injection
+          var values = lines[j].split(","); // Split up the comma seperated values
+          // We read the key,1st, 2nd and 3rd rows
+          uuid.push(values[0]);
+          title_en.push(values[1]);
+          title_fr.push(values[2]);
+        }
+
+        // For display
+        var x = 0;
+        console.log(
+          headings[0] +
+            " : " +
+            // eslint-disable-next-line security/detect-object-injection
+            uuid[x] +
+            headings[1] +
+            " : " +
+            // eslint-disable-next-line security/detect-object-injection
+            title_en[x] +
+            headings[2] +
+            " : " +
+            // eslint-disable-next-line security/detect-object-injection
+            title_fr[x]
+        );
+      }
+    });
+
     //if survey is in progress reload from store
     if (this.$store.getters.inProgress) {
       this.fileLoaded({
