@@ -11,6 +11,18 @@
         {{ $t("linkProjectText") }}
       </a>
     </p>
+    <p>
+      <a
+       
+        class="btn btn-default "
+        role="button"
+        href="
+          https://registry.open.canada.ca/en/info/new
+        "
+      >
+        {{ $t("openGovUpload") }}
+      </a>
+    </p>
     <form>
       <ActionButtonBar
         v-on:fileLoaded="fileLoaded($event)"
@@ -235,7 +247,39 @@ export default class Results extends Vue {
   myResults = this.$store.getters.resultDataSections;
 
   Survey: Model = new Model(surveyJSON);
+  
 
+/*
+  generateJSON(Survey: Model){
+    const fs = require("fs");
+    const path = require("path");
+
+    const surveyfile = path.join(__dirname, "..", "src", "survey-enfr.json");
+    const registryfile = path.join(
+      __dirname,
+      "..",
+      "src",
+      "aia-metadata-info.json"
+    );
+
+    //Capture specifc elements
+    let surveyJSON = JSON.parse(fs.readFileSync(surveyfile));
+    let registryJSON = JSON.parse(fs.readFileSync(registryfile));
+    console.log(surveyJSON[lines][i].elements[0].elements[0].defaultValue); 
+
+
+
+
+    for (lines in surveyJSON) {
+      if (lines == "pages") {
+        for (i = 0; i < surveyJSON[lines].length; i++) {
+          // eslint-disable-next-line security/detect-object-injection
+          if (surveyJSON[lines][i].name == "projectDetails") {
+        }
+      }
+    }
+  }
+*/
   startAgain() {
     this.Survey.clear(true, true);
     window.localStorage.clear();

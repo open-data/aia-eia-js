@@ -223,6 +223,7 @@ const store: StoreOptions<RootState> = {
       state.toolData = {};
     },
     updateResult(state: RootState, result: SurveyModel) {
+      
       state.result = result;
       state.currentPageNo = result.currentPageNo;
       //freeze this data so we can load from localStorage

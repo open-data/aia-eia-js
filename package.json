@@ -9,6 +9,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "update-depts": "node ./scripts/update-dept-json.js",
     "lint": "vue-cli-service lint",
     "lint:md": "markdownlint \"**/*.md\" -i \"node_modules\"",
     "test:unit": "vue-cli-service test:unit",
