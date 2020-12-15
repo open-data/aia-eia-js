@@ -48,7 +48,6 @@ import surveyJSON from "@/survey-enfr.json";
 })
 export default class Home extends Vue {
   Survey: Model = new Model(surveyJSON);
-
   startAgain() {
     this.Survey.clear(true, true);
     window.localStorage.clear();
@@ -73,7 +72,59 @@ export default class Home extends Vue {
     this.Survey.onValueChanged.add(result => {
       this.$store.commit("updateResult", result);
     });
+    /*
+      console.log(this.Survey.data);
+      //console.log(this.Survey.getValue("projectDetailsDepartment"));
 
+      //console.log(document.getElementsByTagName("option")[this.Survey.getValue("projectDetailsDepartment")].innerHTML);
+      //Starting value for option array list - 311
+      var startingValueForSubjects = 311;
+      var indexNumberForSubject =
+        Number(this.Survey.getValue("projectSubject")) +
+        startingValueForSubjects;
+
+      //Displays Current Subject Number
+      //console.log(document.getElementsByTagName("option")[indexNumberForSubject].innerHTML);
+
+      request.get("https://open.canada.ca/static/orgs.csv", function(
+        error,
+        response,
+        body
+      ) {
+        if (!error && response.statusCode == 200) {
+          var csvDept: any = body;
+          //console.log(csvDept);
+          var uuid: any = [];
+          var title_en: any = [];
+          var title_fr: any = [];
+          //Size used to find the length of the most uptodate list on the orgs.csv file
+          var size: int = processData(csvDept, uuid, title_en, title_fr);
+
+          for (i = 0; i < size; i++) {
+            // eslint-disable-next-line security/detect-object-injection
+            if (uuid[i] == this.Survey.getValue("projectDetailsDepartment")) {
+              //registryJSON["result"].org_title_at_publication.en = title_en[i]
+              //registryJSON["result"].org_title_at_publication.fr =  title_fr[i]
+            }
+          }
+        }
+      });
+      //This is the function thats creating the arrays to map out the AIA tool
+      function processData(data: any, uuid: any, titleEn: any, titleFr: any) {
+        var lines = data.split(/\r\n|\n/);
+
+        for (var j = 1; j < lines.length; j++) {
+          var values = lines[j].split(","); // Split up the comma seperated values
+          // We read the key,1st, 2nd and 3rd rows
+          uuid.push(values[0]); // Read in as string
+          // Recommended to read in as float, since we'll be doing some operations on this later.
+          titleEn.push(values[1]);
+          titleFr.push(values[2]);
+        }
+        return lines.length;
+      }
+    });
+*/
     const converter = new showdown.Converter();
 
     this.Survey.onTextMarkdown.add(function(survey, options) {
@@ -118,57 +169,6 @@ export default class Home extends Vue {
           "</label>";
       }
     });
-
-    $(document).ready(function() {
-      // AJAX in the data file
-      $.ajax({
-        type: "GET",
-        url: "https://open.canada.ca/static/orgs.csv",
-        dataType: "text",
-        success: function(data: any) {
-          processData(data);
-        }
-      });
-
-      // Let's process the data from the data file
-      function processData(data: any) {
-        var lines = data.split(/\r\n|\n/);
-
-        //Set up the data arrays
-        var uuid = [];
-        var title_en = [];
-        var title_fr = [];
-
-        var headings = lines[0].split(","); // Splice up the first row to get the headings
-
-        for (var j = 1; j < lines.length; j++) {
-          // eslint-disable-next-line security/detect-object-injection
-          var values = lines[j].split(","); // Split up the comma seperated values
-          // We read the key,1st, 2nd and 3rd rows
-          uuid.push(values[0]);
-          title_en.push(values[1]);
-          title_fr.push(values[2]);
-        }
-
-        // For display
-        var x = 0;
-        console.log(
-          headings[0] +
-            " : " +
-            // eslint-disable-next-line security/detect-object-injection
-            uuid[x] +
-            headings[1] +
-            " : " +
-            // eslint-disable-next-line security/detect-object-injection
-            title_en[x] +
-            headings[2] +
-            " : " +
-            // eslint-disable-next-line security/detect-object-injection
-            title_fr[x]
-        );
-      }
-    });
-
     //if survey is in progress reload from store
     if (this.$store.getters.inProgress) {
       this.fileLoaded({

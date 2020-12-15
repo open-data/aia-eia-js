@@ -11,6 +11,19 @@
         {{ $t("linkProjectText") }}
       </a>
     </p>
+    <!-- Creation of button to redirect to registry page that calls generateJSON() -->
+    <p>
+      <a
+        onclick="generateJSON(':survey')"
+        class="btn btn-default"
+        role="button"
+        href="
+          https://registry.open.canada.ca/en/info/new
+        "
+      >
+        {{ $t("openGovUpload") }}
+      </a>
+    </p>
     <form>
       <ActionButtonBar
         v-on:fileLoaded="fileLoaded($event)"
@@ -235,6 +248,114 @@ export default class Results extends Vue {
   myResults = this.$store.getters.resultDataSections;
 
   Survey: Model = new Model(surveyJSON);
+
+  generateJSON(Survey: Model) {
+    /* BUGS : __dirname is not defined line #260, 
+              cannot pass in survey object correctly line #17
+              to caputre subject value cannot be static line #298 - 299
+                mapping of subject value line #318
+    */
+    const fs = require("fs");
+    const path = require("path");
+    const request = require("request");
+    const registryfile = path.join(
+      __dirname,
+      "..",
+      "src",
+      "aia-metadata-info.json"
+    );
+
+    //Capture specifc elements
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    var registryJSON = JSON.parse(fs.readFileSync(registryfile));
+
+    request.get("https://open.canada.ca/static/orgs.csv", function(
+      error: any,
+      response: any,
+      body: any,
+      registryJSON: any
+    ) {
+      if (!error && response.statusCode == 200) {
+        var csvDept: any = body;
+        //console.log(csvDept);
+        var uuid: any = [];
+        var title_en: any = [];
+        var title_fr: any = [];
+        //Size used to find the length of the most uptodate list on the orgs.csv file
+        var size = processData(csvDept, uuid, title_en, title_fr);
+        var deptField = Survey.getValue("projectDetailsDepartment");
+
+        for (var i = 0; i < size; i++) {
+          // eslint-disable-next-line security/detect-object-injection
+          if (uuid[i] == deptField) {
+            registryJSON["result"].org_title_at_publication.en = title_en[i];
+            registryJSON["result"].org_title_at_publication.fr = title_fr[i];
+          }
+        }
+      }
+    });
+    //Starting value for option array list is 311 which includes departements from 311 and lower
+    //CANNOT BE STATIC, needs to be dynamic for ex. if someone addes a department 311 would be 312 instead
+    var startingValueForSubjects = 311;
+    var indexNumberForSubject =
+      Number(this.Survey.getValue("projectSubject")) + startingValueForSubjects;
+
+    console.log(registryJSON["result"]);
+
+    var createdUUID = this.generateUUID();
+
+    registryJSON["result"].UUID = createdUUID;
+    registryJSON["result"].date_published = this.Survey.data.dateType;
+    registryJSON["result"].creator = this.Survey.data.projectDetailsRespondent;
+    registryJSON[
+      "result"
+    ].maintainer_email = this.Survey.data.projectContactEmail;
+    //THIS IS UUID FOR DEPARTMENT
+    registryJSON[
+      "result"
+    ].owner_org = this.Survey.data.projectDetailsDepartment;
+
+    registryJSON["result"].subject = indexNumberForSubject;
+  
+    registryJSON[
+      "result"
+    ].title_translated.en = this.Survey.data.projectDetailsTitleEn;
+    registryJSON[
+      "result"
+    ].title_translated.fr = this.Survey.data.projectDetailsTitleFr;
+    registryJSON[
+      "result"
+    ].notes_translated.en = this.Survey.data.projectDetailsDescriptionEn;
+    registryJSON[
+      "result"
+    ].notes_translated.fr = this.Survey.data.projectDetailsDescriptionFr;
+
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    fs.writeFileSync(registryfile, JSON.stringify(registryJSON, null, 4));
+
+    //This is the function thats creating the arrays to map out the AIA tool
+    function processData(data: any, uuid: any, titleEn: any, titleFr: any) {
+      var lines = data.split(/\r\n|\n/);
+
+      for (var j = 1; j < lines.length; j++) {
+        var values = lines[j].split(","); // Split up the comma seperated values
+        // We read the key,1st, 2nd and 3rd rows
+        uuid.push(values[0]); // Read in as string
+        // Recommended to read in as float, since we'll be doing some operations on this later.
+        titleEn.push(values[1]);
+        titleFr.push(values[2]);
+      }
+      return lines.length;
+    }
+  }
+
+  generateUUID() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+      var r = (Math.random() * 16) | 0,
+        v = c == "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  }
 
   startAgain() {
     this.Survey.clear(true, true);

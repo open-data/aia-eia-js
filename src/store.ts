@@ -21,6 +21,14 @@ const vuexLocal = new VuexPersistence({
   })
 });
 
+function getSubject(question: IQuestion){
+  return question.getValueName(); 
+}
+
+function getDepartment(question: IQuestion){
+  return question.getValueName();
+}
+
 function addItemsInArray(val: any[]) {
   let total = 0;
   val.forEach(item => {
@@ -40,8 +48,10 @@ function hasScore(question: IQuestion): boolean {
     question.getType() === "dropdown"
   ) {
     // Check the suffix for "-RS" or "-MS" for valid score questions.
+
     return getScoreType(question) > 1;
   }
+
   return false;
 }
 
@@ -223,6 +233,7 @@ const store: StoreOptions<RootState> = {
       state.toolData = {};
     },
     updateResult(state: RootState, result: SurveyModel) {
+      
       state.result = result;
       state.currentPageNo = result.currentPageNo;
       //freeze this data so we can load from localStorage
